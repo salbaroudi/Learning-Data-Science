@@ -1,0 +1,704 @@
+> library("swirl")
+
+| Hi! Type swirl() when you are ready to begin.
+
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you did then. If you are new,
+| call yourself something unique.
+
+What shall I call you? Sean
+
+| Would you like to continue with one of these lessons?
+
+1: R Programming Functions
+2: R Programming Subsetting Vectors
+3: No. Let me start something new.
+
+Selection: 3
+
+| Please choose a course, or type 0 to exit swirl.
+
+1: R Programming
+2: Take me to the swirl course repository!
+
+Selection: 1
+
+| Please choose a lesson, or type 0 to return to course menu.
+
+ 1: Basic Building Blocks      2: Workspace and Files        3: Sequences of Numbers    
+ 4: Vectors                    5: Missing Values             6: Subsetting Vectors      
+ 7: Matrices and Data Frames   8: Logic                      9: Functions               
+10: lapply and sapply         11: vapply and tapply         12: Looking at Data         
+13: Simulation                14: Dates and Times           15: Base Graphics           
+
+
+Selection: 8
+
+  |                                                                                                            |   0%
+
+| This lesson is meant to be a short introduction to logical operations in R.
+
+...
+
+  |==                                                                                                          |   2%
+| There are two logical values in R, also called boolean values. They are TRUE and FALSE. In R you can construct
+| logical expressions which will evaluate to either TRUE or FALSE.
+
+...
+
+  |====                                                                                                        |   4%
+| Many of the questions in this lesson will involve evaluating logical expressions. It may be useful to open up a
+| second R terminal where you can experiment with some of these expressions.
+
+...
+
+  |======                                                                                                      |   6%
+| Creating logical expressions requires logical operators. You're probably familiar with arithmetic operators like
+| `+`, `-`, `*`, and `/`. The first logical operator we are going to discuss is the equality operator, represented by
+| two equals signs `==`. Use the equality operator below to find out if TRUE is equal to TRUE.
+
+> 
+> T = T
+
+| Try again. Getting it right on the first try is boring anyway! Or, type info() for more options.
+
+| Use the equality operator and type TRUE == TRUE
+
+> T == T
+[1] TRUE
+
+| That's not exactly what I'm looking for. Try again. Or, type info() for more options.
+
+| Use the equality operator and type TRUE == TRUE
+
+> TRUE == TRUE
+[1] TRUE
+
+| Excellent work!
+
+  |========                                                                                                    |   8%
+| Just like arithmetic, logical expressions can be grouped by parenthesis so that the entire expression (TRUE ==
+| TRUE) == TRUE evaluates to TRUE.
+
+...
+
+  |==========                                                                                                  |  10%
+| To test out this property, try evaluating (FALSE == TRUE) == FALSE .
+
+> (FALSE == TRUE) == FALSE
+[1] TRUE
+
+| Great job!
+
+  |============                                                                                                |  12%
+| The equality operator can also be used to compare numbers. Use `==` to see if 6 is equal to 7.
+
+> 6 == 7
+[1] FALSE
+
+| You're the best!
+
+  |===============                                                                                             |  13%
+| The previous expression evaluates to FALSE because 6 is less than 7. Thankfully, there are inequality operators
+| that allow us to test if a value is less than or greater than another value.
+
+...
+
+  |=================                                                                                           |  15%
+| The less than operator `<` tests whether the number on the left side of the operator (called the left operand) is
+| less than the number on the right side of the operator (called the right operand). Write an expression to test
+| whether 6 is less than 7.
+
+> 6 < 7
+[1] TRUE
+
+| You are doing so well!
+
+  |===================                                                                                         |  17%
+| There is also a less-than-or-equal-to operator `<=` which tests whether the left operand is less than or equal to
+| the right operand. Write an expression to test whether 10 is less than or equal to 10.
+
+> 10 <= 10
+[1] TRUE
+
+| You got it!
+
+  |=====================                                                                                       |  19%
+| Keep in mind that there are the corresponding greater than `>` and greater-than-or-equal-to `>=` operators.
+
+...
+
+  |=======================                                                                                     |  21%
+| Which of the following evaluates to FALSE?
+
+1: 7 == 7
+2: 6 < 8
+3: 0 > -36
+4: 9 >= 10
+
+Selection: 4
+
+| You got it right!
+
+  |=========================                                                                                   |  23%
+| Which of the following evaluates to TRUE?
+
+1: 57 < 8
+2: 9 >= 10
+3: -6 > -7
+4: 7 == 9
+
+Selection: 3
+
+| Great job!
+
+  |===========================                                                                                 |  25%
+| The next operator we will discuss is the 'not equals' operator represented by `!=`. Not equals tests whether two
+| values are unequal, so TRUE != FALSE evaluates to TRUE. Like the equality operator, `!=` can also be used with
+| numbers. Try writing an expression to see if 5 is not equal to 7.
+
+> 5 != 7
+[1] TRUE
+
+| Excellent job!
+
+  |=============================                                                                               |  27%
+| In order to negate boolean expressions you can use the NOT operator. An exclamation point `!` will cause !TRUE
+| (say: not true) to evaluate to FALSE and !FALSE (say: not false) to evaluate to TRUE. Try using the NOT operator
+| and the equals operator to find the opposite of whether 5 is equal to 7.
+
+> 5 != 7
+[1] TRUE
+
+| Give it another try. Or, type info() for more options.
+
+| This expression may be a little tricky, so think about negating the expression 5 == 7 (all you need is an
+| exclamation point in front).
+
+> !(5 == 7)
+[1] TRUE
+
+| That's the answer I was looking for.
+
+  |===============================                                                                             |  29%
+| Let's take a moment to review. The equals operator `==` tests whether two boolean values or numbers are equal, the
+| not equals operator `!=` tests whether two boolean values or numbers are unequal, and the NOT operator `!` negates
+| logical expressions so that TRUE expressions become FALSE and FALSE expressions become TRUE.
+
+...
+
+  |=================================                                                                           |  31%
+| Which of the following evaluates to FALSE?
+
+1: 9 < 10
+2: 7 != 8
+3: !FALSE
+4: !(0 >= -1)
+
+Selection: 4
+
+| That's correct!
+
+  |===================================                                                                         |  33%
+| What do you think the following expression will evaluate to?: (TRUE != FALSE) == !(6 == 7)
+
+1: %>%
+2: FALSE
+3: TRUE
+4: Can there be objective truth when programming?
+
+Selection: 3
+
+| You're the best!
+
+  |=====================================                                                                       |  35%
+| At some point you may need to examine relationships between multiple logical expressions. This is where the AND
+| operator and the OR operator come in.
+
+...
+
+  |=======================================                                                                     |  37%
+| Let's look at how the AND operator works. There are two AND operators in R, `&` and `&&`. Both operators work
+| similarly, if the right and left operands of AND are both TRUE the entire expression is TRUE, otherwise it is
+| FALSE. For example, TRUE & TRUE evaluates to TRUE. Try typing FALSE & FALSE to how it is evaluated.
+
+> 
+> FALSE & FALSE
+[1] FALSE
+
+| Nice work!
+
+  |==========================================                                                                  |  38%
+| You can use the `&` operator to evaluate AND across a vector. The `&&` version of AND only evaluates the first
+| member of a vector. Let's test both for practice. Type the expression TRUE & c(TRUE, FALSE, FALSE).
+
+> TRUE & c(TRUE, FALSE, FALSE)
+[1]  TRUE FALSE FALSE
+
+| Great job!
+
+  |============================================                                                                |  40%
+| What happens in this case is that the left operand `TRUE` is recycled across every element in the vector of the
+| right operand. This is the equivalent statement as c(TRUE, TRUE, TRUE) & c(TRUE, FALSE, FALSE).
+
+...
+
+  |==============================================                                                              |  42%
+| Now we'll type the same expression except we'll use the `&&` operator. Type the expression TRUE && c(TRUE, FALSE,
+| FALSE).
+
+> TRUE && c(TRUE, FALSE, FALSE)
+[1] TRUE
+
+| That's a job well done!
+
+  |================================================                                                            |  44%
+| In this case, the left operand is only evaluated with the first member of the right operand (the vector). The rest
+| of the elements in the vector aren't evaluated at all in this expression.
+
+...
+
+  |==================================================                                                          |  46%
+| The OR operator follows a similar set of rules. The `|` version of OR evaluates OR across an entire vector, while
+| the `||` version of OR only evaluates the first member of a vector.
+
+...
+
+  |====================================================                                                        |  48%
+| An expression using the OR operator will evaluate to TRUE if the left operand or the right operand is TRUE. If both
+| are TRUE, the expression will evaluate to TRUE, however if neither are TRUE, then the expression will be FALSE.
+
+...
+
+  |======================================================                                                      |  50%
+| Let's test out the vectorized version of the OR operator. Type the expression TRUE | c(TRUE, FALSE, FALSE).
+
+> TRUE | c(TRUE,FALSE,FALSE)
+[1] TRUE TRUE TRUE
+
+| Excellent work!
+
+  |========================================================                                                    |  52%
+| Now let's try out the non-vectorized version of the OR operator. Type the expression TRUE || c(TRUE, FALSE, FALSE).
+
+> TRUE || c(TRUE,FALSE,FALSE)
+[1] TRUE
+
+| You are quite good my friend!
+
+  |==========================================================                                                  |  54%
+| Logical operators can be chained together just like arithmetic operators. The expressions: `6 != 10 && FALSE && 1
+| >= 2` or `TRUE || 5 < 9.3 || FALSE` are perfectly normal to see.
+
+...
+
+  |============================================================                                                |  56%
+| As you may recall, arithmetic has an order of operations and so do logical expressions. All AND operators are
+| evaluated before OR operators. Let's look at an example of an ambiguous case. Type: 5 > 8 || 6 != 8 && 4 > 3.9
+
+> 
+
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you did then. If you are new,
+| call yourself something unique.
+
+What shall I call you? Sean
+
+| Would you like to continue with one of these lessons?
+
+1: R Programming Functions
+2: R Programming Logic
+3: R Programming Subsetting Vectors
+4: No. Let me start something new.
+
+Selection: 4
+
+| Please choose a course, or type 0 to exit swirl.
+
+1: R Programming
+2: Take me to the swirl course repository!
+
+Selection: 1
+
+| Please choose a lesson, or type 0 to return to course menu.
+
+ 1: Basic Building Blocks      2: Workspace and Files        3: Sequences of Numbers    
+ 4: Vectors                    5: Missing Values             6: Subsetting Vectors      
+ 7: Matrices and Data Frames   8: Logic                      9: Functions               
+10: lapply and sapply         11: vapply and tapply         12: Looking at Data         
+13: Simulation                14: Dates and Times           15: Base Graphics           
+
+
+Selection: 14
+
+  |                                                                                                            |   0%
+
+| R has a special way of representing dates and times, which can be helpful if you're working with data that show how
+| something changes over time (i.e. time-series data) or if your data contain some other temporal information, like
+| dates of birth.
+
+...
+
+  |===                                                                                                         |   3%
+| Dates are represented by the 'Date' class and times are represented by the 'POSIXct' and 'POSIXlt' classes.
+| Internally, dates are stored as the number of days since 1970-01-01 and times are stored as either the number of
+| seconds since 1970-01-01 (for 'POSIXct') or a list of seconds, minutes, hours, etc. (for 'POSIXlt').
+
+...
+
+  |======                                                                                                      |   6%
+| Let's start by using d1 <- Sys.Date() to get the current date and store it in the variable d1. (That's the letter
+| 'd' and the number 1.)
+
+> d1 <- Sys.Date()
+
+| You got it right!
+
+  |=========                                                                                                   |   8%
+| Use the class() function to confirm d1 is a Date object.
+
+> class(d1)
+[1] "Date"
+
+| You are doing so well!
+
+  |============                                                                                                |  11%
+| We can use the unclass() function to see what d1 looks like internally. Try it out.
+
+> unclass(d1)
+[1] 17801
+
+| That's the answer I was looking for.
+
+  |===============                                                                                             |  14%
+| That's the exact number of days since 1970-01-01!
+
+...
+
+  |==================                                                                                          |  17%
+| However, if you print d1 to the console, you'll get today's date -- YEAR-MONTH-DAY. Give it a try.
+
+> d1
+[1] "2018-09-27"
+
+| You got it right!
+
+  |=====================                                                                                       |  19%
+| What if we need to reference a date prior to 1970-01-01? Create a variable d2 containing as.Date("1969-01-01").
+
+> d2 <- as.Date("1969-01-01")
+
+| Keep working like that and you'll get there!
+
+  |========================                                                                                    |  22%
+| Now use unclass() again to see what d2 looks like internally.
+
+> unclass(d2)
+[1] -365
+
+| That's a job well done!
+
+  |===========================                                                                                 |  25%
+| As you may have anticipated, you get a negative number. In this case, it's -365, since 1969-01-01 is exactly one
+| calendar year (i.e. 365 days) BEFORE 1970-01-01.
+
+...
+
+  |==============================                                                                              |  28%
+| Now, let's take a look at how R stores times. You can access the current date and time using the Sys.time()
+| function with no arguments. Do this and store the result in a variable called t1.
+
+> Sys.time()
+[1] "2018-09-27 21:16:02 EDT"
+
+| Not quite, but you're learning! Try again. Or, type info() for more options.
+
+| t1 <- Sys.time() will store the current date and time in a variable called t1.
+
+> t1 <- Sys.time()
+
+| Perseverance, that's the answer.
+
+  |=================================                                                                           |  31%
+| View the contents of t1.
+
+> unclass(t1)
+[1] 1538097371
+
+| Give it another try. Or, type info() for more options.
+
+| Type t1 to view its contents.
+
+> t1
+[1] "2018-09-27 21:16:10 EDT"
+
+| Great job!
+
+  |====================================                                                                        |  33%
+| And check the class() of t1.
+
+> class(t1)
+[1] "POSIXct" "POSIXt" 
+
+| Nice work!
+
+  |=======================================                                                                     |  36%
+| As mentioned earlier, POSIXct is just one of two ways that R represents time information. (You can ignore the
+| second value above, POSIXt, which just functions as a common language between POSIXct and POSIXlt.) Use unclass()
+| to see what t1 looks like internally -- the (large) number of seconds since the beginning of 1970.
+
+> unclass(t1)
+[1] 1538097371
+
+| Perseverance, that's the answer.
+
+  |==========================================                                                                  |  39%
+| By default, Sys.time() returns an object of class POSIXct, but we can coerce the result to POSIXlt with
+| as.POSIXlt(Sys.time()). Give it a try and store the result in t2.
+
+> t2 <- as.POSIXlt(Sys.time())
+
+| Great job!
+
+  |=============================================                                                               |  42%
+| Check the class of t2.
+
+> class(t2)
+[1] "POSIXlt" "POSIXt" 
+
+| Excellent work!
+
+  |================================================                                                            |  44%
+| Now view its contents.
+
+> t2
+[1] "2018-09-27 21:17:29 EDT"
+
+| Great job!
+
+  |===================================================                                                         |  47%
+| The printed format of t2 is identical to that of t1. Now unclass() t2 to see how it is different internally.
+
+> unclass(t2)
+$sec
+[1] 29.2754
+
+$min
+[1] 17
+
+$hour
+[1] 21
+
+$mday
+[1] 27
+
+$mon
+[1] 8
+
+$year
+[1] 118
+
+$wday
+[1] 4
+
+$yday
+[1] 269
+
+$isdst
+[1] 1
+
+$zone
+[1] "EDT"
+
+$gmtoff
+[1] -14400
+
+attr(,"tzone")
+[1] ""    "EST" "EDT"
+
+| All that practice is paying off!
+
+  |======================================================                                                      |  50%
+| t2, like all POSIXlt objects, is just a list of values that make up the date and time. Use str(unclass(t2)) to have
+| a more compact view.
+
+> str(unclass(t2))
+List of 11
+ $ sec   : num 29.3
+ $ min   : int 17
+ $ hour  : int 21
+ $ mday  : int 27
+ $ mon   : int 8
+ $ year  : int 118
+ $ wday  : int 4
+ $ yday  : int 269
+ $ isdst : int 1
+ $ zone  : chr "EDT"
+ $ gmtoff: int -14400
+ - attr(*, "tzone")= chr [1:3] "" "EST" "EDT"
+
+| Great job!
+
+  |=========================================================                                                   |  53%
+| If, for example, we want just the minutes from the time stored in t2, we can access them with t2$min. Give it a
+| try.
+
+> t2$min
+[1] 17
+
+| You nailed it! Good job!
+
+  |============================================================                                                |  56%
+| Now that we have explored all three types of date and time objects, let's look at a few functions that extract
+| useful information from any of these objects -- weekdays(), months(), and quarters().
+
+...
+
+  |===============================================================                                             |  58%
+| The weekdays() function will return the day of week from any date or time object. Try it out on d1, which is the
+| Date object that contains today's date.
+
+> weekdays(d1)
+[1] "Thursday"
+
+| Great job!
+
+  |==================================================================                                          |  61%
+| The months() function also works on any date or time object. Try it on t1, which is the POSIXct object that
+| contains the current time (well, it was the current time when you created it).
+
+> months(t1)
+[1] "September"
+
+| Excellent work!
+
+  |=====================================================================                                       |  64%
+| The quarters() function returns the quarter of the year (Q1-Q4) from any date or time object. Try it on t2, which
+| is the POSIXlt object that contains the time at which you created it.
+
+> quarters(t2)
+[1] "Q3"
+
+| Great job!
+
+  |========================================================================                                    |  67%
+| Often, the dates and times in a dataset will be in a format that R does not recognize. The strptime() function can
+| be helpful in this situation.
+
+...
+
+  |===========================================================================                                 |  69%
+| strptime() converts character vectors to POSIXlt. In that sense, it is similar to as.POSIXlt(), except that the
+| input doesn't have to be in a particular format (YYYY-MM-DD).
+
+...
+
+  |==============================================================================                              |  72%
+| To see how it works, store the following character string in a variable called t3: "October 17, 1986 08:24" (with
+| the quotes).
+
+> t3 <- "October 17, 1986 08:24"
+
+| Great job!
+
+  |=================================================================================                           |  75%
+| Now, use strptime(t3, "%B %d, %Y %H:%M") to help R convert our date/time object to a format that it understands.
+| Assign the result to a new variable called t4. (You should pull up the documentation for strptime() if you'd like
+| to know more about how it works.)
+
+> strptime(t3, "%B %d, %Y %H:%M")
+[1] "1986-10-17 08:24:00 EDT"
+
+| You almost had it, but not quite. Try again. Or, type info() for more options.
+
+| t4 <- strptime(t3, "%B %d, %Y %H:%M") will convert our date/time object to a format that R understands.
+
+> t4 <-strptime(t3, "%B %d, %Y %H:%M")
+
+| You are doing so well!
+
+  |====================================================================================                        |  78%
+| Print the contents of t4.
+
+> t4
+[1] "1986-10-17 08:24:00 EDT"
+
+| You got it right!
+
+  |=======================================================================================                     |  81%
+| That's the format we've come to expect. Now, let's check its class().
+
+> class(t4)
+[1] "POSIXlt" "POSIXt" 
+
+| You got it right!
+
+  |==========================================================================================                  |  83%
+| Finally, there are a number of operations that you can perform on dates and times, including arithmetic operations
+| (+ and -) and comparisons (<, ==, etc.)
+
+...
+
+  |=============================================================================================               |  86%
+| The variable t1 contains the time at which you created it (recall you used Sys.time()). Confirm that some time has
+| passed since you created t1 by using the 'greater than' operator to compare it to the current time: Sys.time() > t1
+
+> Sys.time() > t1
+[1] TRUE
+
+| Excellent work!
+
+  |================================================================================================            |  89%
+| So we know that some time has passed, but how much? Try subtracting t1 from the current time using Sys.time() - t1.
+| Don't forget the parentheses at the end of Sys.time(), since it is a function.
+
+> Sys.time() - t1
+Time difference of 6.039329 mins
+
+| Keep up the great work!
+
+  |===================================================================================================         |  92%
+| The same line of thinking applies to addition and the other comparison operators. If you want more control over the
+| units when finding the above difference in times, you can use difftime(), which allows you to specify a 'units'
+| parameter.
+
+...
+
+  |======================================================================================================      |  94%
+| Use difftime(Sys.time(), t1, units = 'days') to find the amount of time in DAYS that has passed since you created
+| t1.
+
+> difftime(Sys.time(), t1, units = 'days')
+Time difference of 0.004460969 days
+
+| Nice work!
+
+  |=========================================================================================================   |  97%
+| In this lesson, you learned how to work with dates and times in R. While it is important to understand the basics,
+| if you find yourself working with dates and times often, you may want to check out the lubridate package by Hadley
+| Wickham.
+
+...
+
+  |============================================================================================================| 100%
+| Would you like to receive credit for completing this course on Coursera.org?
+
+1: No
+2: Yes
+
+Selection: 1
+
+| That's the answer I was looking for.
+
+| You've reached the end of this lesson! Returning to the main menu...
+
+| Would you like to continue with one of these lessons?
+
+1: R Programming Functions
+2: R Programming Logic
+3: R Programming Subsetting Vectors
+4: No. Let me start something new.
+
+Selection:
