@@ -8,3 +8,13 @@ and/or I find interesting), I do go into the mathematical basis
 of how they work; I look inside the box
 
 All derivations are written up in LaTeX, and converted to pdf format.
+
+1) k-NN
+
+2) Logistic Regression
+
+3) Polynomial Regression
+
+4) Decision Trees
+
+
