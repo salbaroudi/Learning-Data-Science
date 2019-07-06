@@ -1,0 +1,154 @@
+Section 2: Tableau Basics: Your first barchart
+
+
+Sheets, Dashboards, Worksheets
+
+
+
+
+
+Data Hiearchies
+
+Calculated Columns
+
+Loading Data:
+   - Joins and Unions
+
+
+- Autofetching Data: If you load location or GPS data, Tableau will automatically load a world map
+for geospatial plotting.
+- if you drag region names into the main chart space, Tableau wil just load a map automatically. You can also 
+right click on a dimension and give tableau context, if it doesn't interpret it correctly, by selecting "Geographic Role"
+
+
+Aggregated Field
+
+Interactivity of Dashboards
+This is done by setting up actions, events that link entities together and do something. Do this from the Dashboard
+Menubar.
+
+
+Joining vs Blending:
+- Joining is the same as with SQL.
+- joins work at row level only!
+- Blending is a new concept!
+- Blending used when level of granularity of the tables does not match. Need to Group and Aggregate.
+
+Adding Data: In the Data Source Window, there are two methods:
+1) Changing your data Source: This opens up a new tableau workspace.
+	Note: All your old visualizations will still be connected to the old data. Do this when
+ 	you want to start something new.
+2 Adding a new data Source: this imports data into your current workspace.
+
+
+Blending:
+- is a left join.
+- blends are used when datasources have different levels of granularity, or different systems.
+-occurs after aggregation (you need to drag things into the chart)
+- occurs between two different Data Sources.
+- Will match granularity before performing the join.
+- Is done on a per-sheet basis.
+- If fields have the same name across datasets, tableau will automatically join them.
+    - these show up in the relationships box of the Data Menu
+
+VS Joins:
+- Join done at the data load pane, not on the sheets.
+- You can't do group aggregate quieries at the data pane, so you have to do a blend afterwards.
+
+- Dual axis charts 
+- When you have two charts stacked (in terms of rows), that share units. You can superimpose them
+on one another. Remember to syncrhonize axes to normalize the two charts.
+
+- Calculated Fields in a Blend:
+   - inputs that you put in will be aggregated; can't do on single values.
+
+
+Table Calculations: 
+- Allows for simple transformation of labels on a chart. For example, totals-> percentages, or calculating
+a simple statistic.
+
+Creating Bins and Distributions for Age:
+- this involves transforming a Measure into a Dimension. You create a bin, and set its width. 
+- just like Measures, you can do a table calculation and transform labels on the chart.
+
+Parameters: are set in the context of charts to control them dynamically.
+To set a parameter, right click on the Data Measures Area
+Parameters can be attached to derived quantities (like bins) as well.
+
+- Simple Interconnectivity:
+Right click on a subchart in a dashboard, and make it a Filter. It will take a subset of data for all the 
+other charts in the dashboard. 
+
+Remember that filters are just a type of action.
+
+Data Tidying and Filling in is done with the Data Interpreter 
+- issues:
+- subheaders, hidden columns (excel), non-standard formatting, non-tidy data.
+- The Data Interpreter Issues a report, that shows which columns were interpreted as headers,data and blank.
+	- This tells you how to clean up the data in excel, before passing it back in.
+- It also crushes sets of null columns (hidden).
+
+- in the data viewer, there are two views:
+Metadata
+Regular data
+
+Transform Operations: In the data viewing area of the Data Source Tab, you can click on column headers and perform
+a number of operations, or transformations, such as:
+
+Pivoting: what they really mean is data melting here. Turning Data into Wide -> Tall format.
+Splitting: Apply the string split() function to separate out composite data from rows.
+
+
+Fixing Common Geographical Mistakes:
+- When data is loaded, Null/error values will be indicated. You can filter them out, or edit them.
+- often times, misspellings, or non-US names are being used. You can just change it so tableau understands.
+
+
+
+Whats New in Tableau 10:
+
+Three new Featurs:
+1) Build your own Territories
+   Method 1: Make Groups via manual highlighting on map:
+   - To do this, select areas on the map (with CTRL button), and then right click and group them together.
+   - you can group on single or composite properties.
+   - Note: You might have to remove region/state data for the territories to show up.
+   - You can calculate statistics based on these composite groups.
+   Method 2: Custom Territories via Geographic Roles
+   - If you already have region groupings identified by a column, you can just use Geo Roles.
+   - this associates group names to elements, in the data.
+   - Tableau will put your group column into a spatial data hiearchy, drag and drop the new field into the map to
+   get your territories.
+
+
+Highlighting:
+- Subtly highlight different marks on your chart based on categories within the selectd field without interfering with the 
+charts visual representation (mark size, colors, etc).
+- Use this when you have too many properties dependent on the color feature.
+- Drag Dimension onto Detail, and select Highlighter from the dropdown menu.
+Clustering:
+- 
+
+
+2) Clustering! Tableau can basically identify groups based on various properties. Basic Unsupervised learning.
+- this is done with the Analytics Tab in the workspace.
+- Drag Cluster algorithm into color mark property, for an effective visualization.
+- to add properties to the clustering, just edit the cluster, and drag quantities or dimensions into it.
+- to save the cluster, drag it into the Dimensions Area.
+
+Regression (Trend Lines):
+Select and drag onto clusters, from the Analytics Plane.
+
+3) Cross Database Joins! 
+In the past, joins on separate databases and files was impossible (silo'ed). You could only do a data blend.
+Now, you can join files, databases, whatever!
+
+Other Improvements:
+- Default Colour pallete for T10 is more harmonized, softer pastels, and takes into account people with colour blindness.
+- Device Preview: When you build Dashboards, you can simulate different tablets and phones to ensure they fit your 
+customer's devices.
+
+
+Questions:
+- What is the difference between a Quick Calculation and a Table Calculation?
+- 
